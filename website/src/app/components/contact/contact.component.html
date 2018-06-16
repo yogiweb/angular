@@ -1,0 +1,50 @@
+
+<div class="container">
+  <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+      <div class="col-md-6 px-0">
+        <h1 class="display-4 font-italic">Contact Us</h1>
+      </div>
+    </div>
+<div class="row mb-2">
+  <div class="col-md-12">
+    <div class="container">
+      <div [hidden]="submitted">
+        <h1>Hero Form</h1>
+        <form #empForm="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="model.name" name="name" required #name="ngModel">
+            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+              Name is required
+            </div>
+          </div>
+    
+          <div class="form-group">
+              <label for="email">email</label>
+              <input type="email" class="form-control" id="email" [(ngModel)]="model.email" name="email" required #email="ngModel">
+              <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                  Email is required
+              </div>
+          </div>
+
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <input type="text" class="form-control" [(ngModel)]="model.gender" name="gender" id="gender">
+          </div>
+
+          
+          <div class="form-group">
+            <label for="depart">Department</label>
+            <select class="form-control" id="depart" required>
+              <option *ngFor="let dep of departments" [value]="dep">{{dep}}</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-success">Submit</button>
+    
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
